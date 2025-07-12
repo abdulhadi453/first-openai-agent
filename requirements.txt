@@ -1,0 +1,39 @@
+venv
+openai-agents
+python-dotenv
+chainlit
+
+
+"""
+1   sbse phale Agent , AsyncOpenAI, OpenAIChatCompletionsModel , Runner, RunConfig
+    ye 5 chezen import krni ha agents se
+
+2   phr os import krna ha
+
+3   phr load_env import krna ha dotenv se or load_env ko call bhi krna ha 
+    ye isliye ha tk hum kuch bhi env ma likhen to directly us name se value read krle
+
+4   uske bd gemini api key ke name se variable bnana ha or os with getenv ka method use krtewe
+    GEMINI_API_KEY ko mention krenge jo env ki file create krna ke bd google se generate krke rakhenge env ki file ma
+
+5   Uske bd provider ka variable bnayenge or usme AsyncOpenAIfuntion ka method use krenge jisme 2 key-values 
+    deni hoti han ek api_key jo humne phale variable bnaya ha uske equal lenge then baseurl agar hum gemini api use krenge 
+    Qk ye free ha isliye base url dena ha manually configure krne ke liye
+
+6   Then Same as provider ek variable model ka create krenge or isme AsyncOpenAI ki jaga OpenAICompletionsModel ka
+    method use krenge isme bhi 2 key-values deni hoti han ek model jo bhi use kr rhe gemini kr rhe tw gemini-2.0-flask
+    ki value denge model ma or dusri key value ma openai_client ki value provider denge jo variable phale bnaya ha
+
+7   phr same provider or model ki tarha config ka variable bnayenge usme RunConfig ka method use krenge ye 3 key-values
+    expect krta ha first model usko model ke equal lenge jo phale create kiya, second model_provider isko bhi phale
+    create kiye provider ke equal lenge, third tracing_disabled isko true krenge
+
+8   Then agent bnane ke liye variable bnayenge us variable ma agent ka method use krenge isme bhi 2 key-value denge
+    First name= koi bhi name deskte , Second instuction denge string ki form ma uske name ke according ke ye kis chez
+    ka agent or hume jo kuch krwana ha isse uski instruction denge.
+    
+9   Hum ek se zyada agents bhi bna skte han uske liye different name and different instruction deni hogi ke hum unko 
+    kis trha ka kam asign kr rhe har agent ko hum alag alag specialize krenge uske task ke liye
+    Or in sub ko ek boss agent jisko hum orchestrator-agent bhi kehte han wo baqi ke sare agents ko unke task asign krega
+    input ke hisab se ke kon sa agent kis task ke liye suitable ha or agar unme se koi apna task nhi krta ya in process
+    koi issue ata toh wo task orchestrator agent khud krke dega
